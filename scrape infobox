@@ -1,0 +1,9 @@
+import pandas
+url =  'https://en.wikipedia.org/wiki/Harry_Potter'
+wikiData = pandas.read_html(url)[0]
+null = wikiData.isnull()
+
+for x in range(len(wikiData)):
+    first = wikiData.iloc[x][0]
+    second = wikiData.iloc[x][1] if not null.iloc[x][1] else ""
+    print(first,second,"\n")
